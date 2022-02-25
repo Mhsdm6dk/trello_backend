@@ -67,7 +67,7 @@ class ProjectController{
             await projectModel.updateOne({
                 _id:req.params._id,
                 createdUser:req._id
-            },{ $push:{userList:req.body.userid}})
+            },{ $push:{userList:req.body.userId}})
             res.json({
                 success:true,
                 message:"add user successfully!"
