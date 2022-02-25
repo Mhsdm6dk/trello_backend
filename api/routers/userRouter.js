@@ -1,0 +1,12 @@
+const express=require('express');
+const userController = require('../controllers/userController');
+const authenticate = require('../middlewares/authenticate');
+const router=express.Router();
+router.get('/',authenticate.authenticateUser,userController.get);
+router.post('/',userController.post);
+router.post('/login',userController.login);
+router.post('/logout',userController.lougout);
+router.put('/info',authenticate.authenticateUser,userController.putInfo);
+router.put('/password',authenticate.authenticateUser,userController.putPassword);
+router.delete('/',authenticate.authenticateUser,userController.delete);
+module.exports=router;
